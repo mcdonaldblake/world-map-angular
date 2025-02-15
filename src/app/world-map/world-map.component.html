@@ -1,0 +1,53 @@
+<div class="page-background">
+  <div class="container">
+    <!-- Left column: Map -->
+    <div class="map-column">
+      <p>Select a country on the map to view details.</p>
+
+      <div 
+        [innerHTML]="worldMapSvg" 
+        class="svg-container" 
+        (click)="handleMapClick($event)"
+      ></div>
+    </div>
+
+    <!-- Right column: Country Details -->
+    <div class="info-column">
+      <h2>Country Details</h2>
+
+      <ng-container *ngIf="selectedCountry; else noSelection">
+        <div class="country-props">
+          <!-- Keep all the details here -->
+          <div class="prop-row">
+            <span class="prop-name">Name:</span>
+            <span class="prop-value">{{ selectedCountry.name }}</span>
+          </div>
+          <div class="prop-row">
+            <span class="prop-name">Capital:</span>
+            <span class="prop-value">{{ selectedCountry.capital }}</span>
+          </div>
+          <div class="prop-row">
+            <span class="prop-name">Region:</span>
+            <span class="prop-value">{{ selectedCountry.region }}</span>
+          </div>
+          <div class="prop-row">
+            <span class="prop-name">Income Level:</span>
+            <span class="prop-value">{{ selectedCountry.incomeLevel }}</span>
+          </div>
+          <div class="prop-row">
+            <span class="prop-name">Longitude:</span>
+            <span class="prop-value">{{ selectedCountry.longitude }}</span>
+          </div>
+          <div class="prop-row">
+            <span class="prop-name">Latitude:</span>
+            <span class="prop-value">{{ selectedCountry.latitude }}</span>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #noSelection>
+        <p>Please select a country from the map.</p>
+      </ng-template>
+    </div>
+  </div>
+</div>

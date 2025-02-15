@@ -1,0 +1,72 @@
+/* Container for a side-by-side (two-column) layout */
+.container {
+  display: flex;
+  gap: 20px;              /* Spacing between columns */
+  max-width: 1400px;      /* Optional max width for your layout */
+  margin: 0 auto;         /* Center horizontally if desired */
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Left column: bigger map */
+.map-column {
+  flex: 2;                /* This column is 2x the width of the right column */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Title above map */
+.map-title {
+  font-size: 2rem;
+  margin: 0 0 20px 0;
+  text-align: center;
+}
+
+/* The SVG container (map) is now larger */
+.svg-container {
+  width: 100%;
+  max-width: 1000px;      /* Increase to make map wider */
+  min-height: 600px;      /* Increase for taller map area */
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;       /* Hide any overflow from SVG */
+  margin: 0 auto;         /* Center the map if narrower than column width */
+}
+
+/* Right column: country details */
+.info-column {
+  flex: 1;                /* Half the size of map-column (since left is flex:2) */
+  background: #f9f9f9;
+  padding: 20px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  margin: 2px;
+}
+
+/* Headings, paragraphs, etc. (adjust as you like) */
+.info-column h2 {
+  margin-top: 0;
+  font-size: 2.2rem;
+  text-align: center;
+}
+
+.info-column p {
+  margin: 10px 0;
+  font-size: 2rem;
+}
+
+/* Responsive: Stack columns on small screens */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .map-column, .info-column {
+    min-width: auto;
+    max-width: 100%;
+  }
+  .svg-container {
+    max-width: 100%;
+    min-height: 400px; /* smaller on mobile */
+  }
+}

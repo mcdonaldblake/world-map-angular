@@ -1,0 +1,19 @@
+.cool-title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    line-height: 1.2;
+  
+    /* Gradient text to simulate chrome effect */
+    background: linear-gradient(to right, #d4d4d4, #ffffff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  
+    /* Slight shadow to give it depth */
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  }
